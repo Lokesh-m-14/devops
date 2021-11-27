@@ -1,0 +1,19 @@
+version:2.1
+
+#define the jobs we want to run for project
+jobs:
+        build:
+                docker:
+                        image:circleci/openjdk:stretch
+                auth:
+                        username:stepin104681
+                password:123abc
+        steps:
+                -checkout
+        -run:echo"this is the build job"
+
+        sequence
+workflows:
+        build_and_test:
+                jobs:
+                        -build
